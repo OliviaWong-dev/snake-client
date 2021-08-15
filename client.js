@@ -19,22 +19,8 @@ const connect = function () {
 
   conn.on('connect', () => {
     conn.write("Name: OWW");
-    // conn.write("Move: up")
-
-    // SETINTERVAL
-    // setInterval(() => {
-    // }, 3000)
-
-    // SETTIMEOUT
-    // let delay = 1000;
-    // for (let i = 0; i < move.length; i++) {
-    //   setTimeout(() => {
-    //     conn.write(move[i])
-    //   }, delay);
-    //   delay += 3000;
-    // };
   });
-
+  
 
   conn.on('data', (data) => {
     console.log(data.toString());
@@ -43,6 +29,5 @@ const connect = function () {
   return conn;
 };
 
-// const move = ["Move: up", "Move: down", "Move: left", "Move: right" ]
 
 module.exports = connect;
