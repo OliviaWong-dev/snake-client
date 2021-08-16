@@ -1,23 +1,17 @@
+const obj = require('./constants');
 let connection;
 
+
 const handleUserInput = (key) => {
-  if (key === 'w') {
-    connection.write("Move: up");
-  } else if (key === 'a') {
-    connection.write("Move: left");
-  } else if (key === 's') {
-    connection.write("Move: down");
-  } else if (key === 'd') {
-    connection.write("Move: right");
-  } else if (key === 'z') {
-    connection.write(`Say: ${message}`);
-  } else if (key === '\u0003') {
-    process.exit();
+  if (key === '\u0003') {
+    return process.exit();
   }
+  if (!obj.keys[key]) {
+    return;
+  }
+  connection.write(obj.keys[key]);
 };
 
-const message = "bye";
-  
 
 
 const setupInput = function(conn) {
